@@ -1,7 +1,12 @@
-console.log("starting");
+const request = require("request");
 
-setTimeout(() => console.log("2 seconds Timer"), 2000);
+const url =
+  "http://api.weatherstack.com/current?access_key=1abca9ad80d041237953d9abaad6c215&query=7.469891,%203.911530&units=f";
 
-setTimeout(() => console.log("0 second Timer"), 0);
-
-console.log("stopping");
+request({ url: url, json: true }, (error, response) => {
+  const data = response.body.current;
+  //console.log(data.current);
+  console.log(
+    `The temperature is currently ${data.temperature}${response.body.request.unit}. It feels like ${data.feelslike}${response.body.request.unit} out there`
+  );
+});
