@@ -1,4 +1,5 @@
 const request = require("request");
+//Weather geocode
 
 const geocode = (address, callback) => {
   const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
